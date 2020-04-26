@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mini-Calci 📑 </title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous" />
+</head>
+
+<body>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+
+    <center>
+        First :
+        <input type="text" id="num1"> Second :
+        <input type="text" id="num2">
+        <br>
+        <br>
+        <input type="button" class="btn btn-outline-primary" onClick="addBy()" value="Add">&nbsp;
+        <input type="button" class="btn btn-outline-warning" onClick="subBy()" value="Subtract">&nbsp;
+        <input type="button" class="btn btn-outline-success" onClick="mulBy()" value="Multiply">&nbsp;
+        <input type="button" class="btn btn-outline-danger" onClick="divBy()" value="Divide">
+        <br>
+        <div id="output"></div>
+        <script>
+            var output = document.getElementById("output");
+            var num1 = document.getElementById("num1");
+            var num2 = document.getElementById("num2");
+
+            function addBy() {
+                var a = num1.value + " + " + num2.value;
+                var b = Number(num1.value) + Number(num2.value);
+                outHTML(a, b);
+            }
+
+            function subBy() {
+                var a = num1.value + " - " + num2.value;
+                var b = Number(num1.value) - Number(num2.value);
+                outHTML(a, b);
+            }
+
+            function mulBy() {
+                var a = num1.value + " X " + num2.value;
+                var b = Number(num1.value) * Number(num2.value);
+                outHTML(a, b);
+            }
+
+            function divBy() {
+                var a = num1.value + " / " + num2.value;
+                var b = Number(num1.value) / Number(num2.value);
+                outHTML(a, b);
+            }
+
+            function outHTML(a, b) {
+                output.innerHTML += a + " = " + b + "<br>";
+            }
+        </script>
+    </center>
+
+
+
+
+
+    <script src="https://code.jquery.com/jquery-3.5.0.js"
+        integrity="sha256-r/AaFHrszJtwpe+tHyNi/XCfMxYpbsRg2Uqn0x3s2zc=" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>
