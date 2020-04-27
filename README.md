@@ -2,6 +2,8 @@
 
 ## This course will guide u to develop your javaScript Coding Knowledge.
 
+![alt text](https://www.occurinfotech.com/img/tags/js.jpg)
+
 ### Content
 
 `- Mini-Calculator`<br />
