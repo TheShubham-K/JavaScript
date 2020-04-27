@@ -5,15 +5,15 @@
 
 ### Content
 
-'- Mini-Calculator'
-'- Remove Duplicates'
-'- Shopping List'
-'- Window Object Model'
-'- Word Guessing Game'
-'- Deck Of Cards'
-'- Calculator Using CallBack'
-'- Code cracking Game'
-'- Functions'
+`- Mini-Calculator`
+`- Remove Duplicates`
+`- Shopping List`
+`- Window Object Model`
+`- Word Guessing Game`
+`- Deck Of Cards`
+`- Calculator Using CallBack`
+`- Code cracking Game`
+`- Functions`
 
 
 
