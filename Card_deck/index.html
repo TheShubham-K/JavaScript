@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Card Deck 🖥 </title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous" />
+</head>
+
+<body>
+    <br><br><br>
+    <div id="wrapper" align="center">
+        <div id="start"></div>
+        <h3>How many Players ?</h3>
+        <input type="number" id="players" min="1" max="5" value="3" style="padding: 3px;">
+        <br><br>
+        <button id="btnDeal" class="btn btn-outline-primary" type="button" onClick="startDeal()">Deal</button>
+        <div id="message"></div>
+    </div>
+
+
+
+
+    <script>
+        var suits = ["spades", "hearts", "clubs", "diams"];
+        var cardFace = ["2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K", "A"];
+        var players = [];
+
+        function startDeal() {
+            players = [];
+            var num = Number(document.getElementById("players").value);
+            for (i = 0; i < num; i++) {
+                players[i] = [];
+            }
+            var cards = buildCards();
+            shuffleArray(cards);
+            deal(cards);
+        }
+
+        function deal(c) {
+            var num = players.length;
+            var message = document.getElementById("message");
+            var p = 0;
+            for (var i = 0; i < c.length; i++) {
+                players[p].push(c[i]);
+                p++;
+                if (p >= num) {
+                    p = 0;
+                }
+            }
+            for (var x = 0; x < num; x++) {
+                message.innerHTML += "<BR>Player : " + (x + 1) + "<br>";
+                for (var i = 0; i < players[x].length; i++) {
+                    message.innerHTML += "<span style=\"color:" + players[x][i].bgColor + "\">" + players[x][i].num +
+                        "&" + players[x][i].suit + "; </span>";
+                }
+                message.innerHTML += "<BR>";
+            }
+        }
+
+        function buildCards() {
+            var cards = [];
+            for (s in suits) {
+                var suitNew = suits[s][0].toUpperCase();
+                var bgColor = suitNew == "H" || suitNew == "D" ? "red" : "black";
+                for (n in cardFace) {
+                    var card = {
+                        suit: suits[s],
+                        num: cardFace[n],
+                        bgColor: bgColor,
+                        icon: suitNew
+                    }
+                    cards.push(card);
+                }
+            }
+            return cards;
+        }
+
+        function shuffleArray(array) {
+            for (var x = array.length - 1; x > 0; x--) {
+                var ii = Math.floor(Math.random() * (x + 1));
+                var temp = array[x];
+                array[x] = array[ii];
+                array[ii] = temp;
+            }
+            return array;
+        }
+    </script>
+
+
+    <script src="https://code.jquery.com/jquery-3.5.0.js"
+        integrity="sha256-r/AaFHrszJtwpe+tHyNi/XCfMxYpbsRg2Uqn0x3s2zc=" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>
