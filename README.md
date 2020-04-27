@@ -2,7 +2,7 @@
 
 ## This course will guide u to develop your javaScript Coding Knowledge.
 
-![alt text](https://www.occurinfotech.com/img/tags/js.jpg)
+![alt text](https://s3.amazonaws.com/tinycards/image/35fde9e2f21022536029356e95c86faa)
 
 ### Content
 

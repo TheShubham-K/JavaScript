@@ -9,7 +9,7 @@
         integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous" />
 </head>
 
-<body onload="myFun('body;')">
+<body onload="myFun()">
     <br />
     <br />
     <br />
@@ -21,10 +21,31 @@
         <br>
         <div id="wrapper">&#x1F4C3; &#x1F3EA; 😆 </div>
         <br>
-        <img src="" alt="">
+        <form name="myForm">
+            <input type="button" id="id1" class="btn btn-outline-primary" value="click1">
+            <input type="button" id="id2" class="btn btn-outline-primary" value="click2">
+            <input type="button" id="id3" class="btn btn-outline-primary" value="click3">
+        </form>
     </center>
     <script>
         var output = document.getElementById("wrapper");
+
+        document.getElementById("id1").onclick = myFun;
+        document.getElementById("id2").onclick = myFun;
+        document.getElementById("id3").onclick = myFun;
+
+        // window.onload = function (event) {
+        //     myFun(' window;')
+        // }
+
+        window.onload = myFun()
+
+        // function myFun(a) {
+        //     output.innerHTML = "WELCOME all loaded" + a;
+        // }
+        function myFun() {
+            output.innerHTML = "WELCOME all loaded"
+        }
     </script>
 
     <script src="https://code.jquery.com/jquery-3.5.0.js"

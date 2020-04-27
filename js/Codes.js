@@ -260,3 +260,9 @@ console.dir(Navigator)
 // To Know user Agent
 var output = document.getElementById("wrapper");
 output.innerHTML = navigator.userAgent;
+
+// DOM Traversing
+
+document.body.children
+document.body.children[3].innerHTML = "Google"
+document.body.children[4].children[1].children[1].name
