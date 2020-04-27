@@ -55,3 +55,60 @@ var output = document.getElementById("output");
   output.innerHTML = a;
 })();
 output.innerHTML += a;
+
+// Functions Scope 🤯
+var outsideFun = "outside";
+
+function myFun() {
+  insideFun = "inside";
+  console.log(outsideFun);
+  console.log(insideFun);
+}
+
+myFun();
+console.log(outsideFun);
+console.log(insideFun);
+
+// Functions Within Function
+
+var outpus = document.getElementById("output");
+var a = 1000;
+
+function outsideFun() {
+  var b = 2000;
+
+  function insideFun() {
+    b++;
+    return b;
+  }
+  insideFun();
+  var c = insideFun();
+  var d = function () {
+    b++;
+    return b;
+  };
+  d();
+  var e = d();
+  console.log(b);
+}
+outsideFun();
+outsideFun();
+outsideFun();
+
+
+// Callback code
+
+var output = document.getElementById("output");
+
+function makeMessage(s1, s2, callback) {
+  var result1 = callback(s1, s2);
+  output.innerHTML += result1;
+}
+makeMessage("hello", "world", function (s1, s2) {
+  var result2 = s1 + s2 + "worked";
+  return result2;
+})
+makeMessage("Java", "Script", function (s1, s2) {
+  var result2 = s1 + s2 + " is great" + s1;
+  return result2;
+})
