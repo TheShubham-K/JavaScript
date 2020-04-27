@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome_Message &#x1F486;</title>
+</head>
+
+<body>
+    <div id="wrapper"></div>
+    <input type="button" onclick="startlnt()" value="Start">
+    <input type="button" onclick="clearlnt()" value="Stop">
+    <script>
+        var output = document.getElementById('wrapper');
+        window.setTimeout(updateWrapper, 5000);
+        var myTimer;
+
+        function startlnt() {
+            myPopup();
+            myTimer = window.setTimeout(startlnt, 1000);
+        }
+
+        function updateWrapper() {
+            output.innerHTML = "Welcome to my Website 😇 ";
+        }
+
+        function clearlnt() {
+            window.clearInterval(myTimer);
+        }
+
+        function myPopup() {
+            alert("Hello");
+        }
+    </script>
+</body>
+
+</html>

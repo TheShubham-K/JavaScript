@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Complete JavaScript Course</title>
+</head>
+
+<body>
+    <div id="wrapper"> </div>
+    <script>
+        var output = document.getElementById('wrapper');
+        console.dir(window);
+        for (var prop in window) {
+            document.write(prop + " " + window[prop] + "<br>");
+        }
+        output.innerHTML += window.innerHeight + " " + window.innerWidth;
+        output.innerHTML += window.location;
+        // alert('hello');
+        var w = window.open('index2.html');
+        w.onbeforeunload = function () {
+            alert("don't go anywhere");
+        }
+    </script>
+</body>
+
+</html>
+
+-------------------------------------------------------------------------------------------------
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Complete JavaScript Course</title>
+</head>
+
+<body>
+    <div id="wrapper"></div> <a href="index3.html">Index3</a> <a href="index.html">Index</a> <a
+        href="index2.html">Index2</a>
+    <input type="button" onclick="goBack()" value="Back">
+    <script>
+        var output = document.getElementById('wrapper');
+
+        function goBack() {
+            window.history.go(-1);
+        }
+    </script>
+</body>
+
+</html>
+-------------------------------------------------------------------------------------------------
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Complete JavaScript Course</title>
+</head>
+
+<body>
+    <div id="wrapper">Page 1</div> <a href="index3.html">Index3</a> <a href="index.html">Index</a> <a
+        href="index2.html">Index2</a>
+    <input type="button" onclick="alert('hello world\'s:')" value="Alert">
+    <script>
+        var output = document.getElementById('wrapper');
+
+        function goBack() {
+            window.history.go(-1);
+        }
+    </script>
+</body>
+
+</html>
