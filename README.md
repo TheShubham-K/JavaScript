@@ -1,4 +1,4 @@
-# A Complete JavaScript Course in Udemy
+# A Complete JavaScript Course.
 
 ## This course will guide u to develop your javaScript Coding Knowledge.
 
