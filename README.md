@@ -2,21 +2,17 @@
 
 ## This course will guide u to develop your javaScript Coding Knowledge.
 
-
 ### Content
 
-`- Mini-Calculator`
-`- Remove Duplicates`
-`- Shopping List`
-`- Window Object Model`
-`- Word Guessing Game`
-`- Deck Of Cards`
-`- Calculator Using CallBack`
-`- Code cracking Game`
+`- Mini-Calculator` " <br>"
+`- Remove Duplicates` " <br>"
+`- shopping List` " <br>"
+`- Window Object Model` " <br>"
+`- Word Guessing Game` " <br>"
+`- Deck Of Cards` " <br>"
+`- Calculator Using CallBack` " <br>"
+`- Code cracking Game` " <br>"
 `- Functions`
-
-
-
 
 `Shubham Kumar` <b>Maintains</b> `Udemy`
 
