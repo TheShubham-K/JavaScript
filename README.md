@@ -4,14 +4,14 @@
 
 ### Content
 
-`- Mini-Calculator` " <br>"
-`- Remove Duplicates` " <br>"
-`- shopping List` " <br>"
-`- Window Object Model` " <br>"
-`- Word Guessing Game` " <br>"
-`- Deck Of Cards` " <br>"
-`- Calculator Using CallBack` " <br>"
-`- Code cracking Game` " <br>"
+`- Mini-Calculator`<br />
+`- Remove Duplicates`<br />
+`- shopping List`<br />
+`- Window Object Model`<br />
+`- Word Guessing Game`<br/>
+`- Deck Of Cards`<br/>
+`- Calculator Using CallBack`<br/>
+`- Code cracking Game`<br/>
 `- Functions`
 
 `Shubham Kumar` <b>Maintains</b> `Udemy`
