@@ -2,7 +2,7 @@
 
 ## This course will guide u to develop your javaScript Coding Knowledge.
 
-![alt text](js_logo.png)
+![alt text](https://lh3.googleusercontent.com/proxy/lCQEY-qfCNTU1HSwBozJZYvk1Yq38d1FryQIaH1rtWTelq30rHpNpOBvmJ5cI45ulRBy-rNWciRVsqR49Ug-uEjg_wG4xuQ_mv4d0jkUlZ1XJ9pqgiGM)
 
 ### Content
 
