@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>&#x1F3F4;&#x200D;&#x2620;&#xFE0F; Complete Javascripts Course</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous" />
+</head>
+
+<body onload="myFun('body;')">
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <center>
+
+        <!-- <input type="text" id="item"> -->
+        <br>
+        <div id="wrapper">&#x1F4C3; &#x1F3EA; 😆 </div>
+        <br>
+        <img src="https://via.placeholder.com/200/00FFFF?text=image1" alt="txt alt" id="imgSwap"
+            onmouseover="cimg(this)" onmouseout="bimg(this)">
+    </center>
+    <script>
+        var output = document.getElementById("wrapper");
+        var imgHolder = "https://via.placeholder.com/200/ffff00?text=image10"
+        window.onload = function () {
+            document.getElementById("imgSwap").src = imgHolder;
+        }
+        var imgHolder = "http://via.placeholder.com/350x150/ffff00/fff?text=Image10";
+        document.getElementById('imgSwap').onclick = function () {
+            message("clicked");
+        }
+
+        function cimg(t) {
+            message(t.src);
+            t.src = "https://via.placeholder.com/200/ff0000?text=image2"
+        }
+
+        function bimg(t) {
+            t.src = imgHolder
+        }
+
+        function message(m) {
+            output.innerHTML = m;
+        }
+    </script>
+
+    <script src="https://code.jquery.com/jquery-3.5.0.js"
+        integrity="sha256-r/AaFHrszJtwpe+tHyNi/XCfMxYpbsRg2Uqn0x3s2zc=" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>
