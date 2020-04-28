@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>&#x1F3F4;&#x200D;&#x2620;&#xFE0F; Complete Javascripts Course</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous" />
+    <style>
+        .btn {
+            height: 50px;
+            width: 100px;
+            background-color: red;
+            color: white;
+            border-radius: 15px;
+            font-size: 1.2em;
+        }
+
+        .box {
+            height: 100px;
+            width: 100px;
+            text-align: center;
+            border: 4px solid #a10808;
+            border-radius: 15px;
+            display: inline-block;
+        }
+    </style>
+</head>
+
+<body>
+    <br />
+    <br />
+    <br />
+    <center>
+        <!-- <input type="text" id="item"> -->
+        <br />
+        <div id="wrapper">&#x1F4C3; &#x1F3EA; 👾 </div>
+        <br />
+        <input type="button" value="Start" onclick="start()" class="btn">
+        <div id="message1">Welcome</div>
+        <div id="message2">Click Start</div>
+        <div id="output"></div>
+        <!-- <div class="box"></div> -->
+    </center>
+    <script>
+        var myArray = [];
+        var people = ["Laurence", "Mike", "John", "Larry", "Kim", "Joanne", "Lisa", "Janet", "Jane", "King", "Queen",
+            "Liva", "Jonathan"
+        ];
+        var key;
+
+        function start() {
+            myArray = people.slice();
+            myArray.sort(function (a, b) {
+                return 0.5 - Math.random()
+            });
+            console.log(myArray);
+            build();
+            findPerson();
+        }
+
+        function findPerson() {
+            key = myArray[Math.floor(Math.random() * myArray.length)];
+            message1("Find this name " + key);
+        }
+
+
+        function build() {
+            var html = "<h1>Name Game 🎮 </h1>";
+            for (var x = 0; x < myArray.length; x++) {
+                var str = myArray[x];
+                var shuffled = str.split('').sort(function () {
+                    return 0.5 - Math.random()
+                }).join('');
+                html += '<div class="box" onmouseover="uText(this,\'' + shuffled +
+                    '\')" onmouseout="uText(this,\'Hidden ' + (x + 1) + '\')" onclick="eEle(this,\'' + str +
+                    '\')" >Hidden ' + (x + 1) + '</div> &nbsp;';
+            }
+            document.getElementById('output').innerHTML = html;
+        }
+
+        function uText(t, mes) {
+            t.innerHTML = mes;
+        }
+
+        function eEle(t, s) {
+            if (s == key) {
+                var n = myArray.indexOf(s);
+                message2("Correct 😇");
+                t.parentNode.removeChild(t);
+                myArray.splice(n, 1);
+                findPerson();
+            } else {
+                message2("Wrong ☠");
+            }
+            if (myArray.length <= 0) {
+                message1("<h2>GAME OVER</h2>")
+            }
+        }
+
+        function message1(message) {
+            document.getElementById('message1').innerHTML = message;
+        }
+
+        function message2(message) {
+            document.getElementById('message2').innerHTML = message;
+        }
+    </script>
+
+    <footer>
+
+    </footer>
+
+
+
+    <script src="https://code.jquery.com/jquery-3.5.0.js"
+        integrity="sha256-r/AaFHrszJtwpe+tHyNi/XCfMxYpbsRg2Uqn0x3s2zc=" crossorigin="anonymous">
+    </script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>
