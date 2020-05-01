@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>&#x1F3F4;&#x200D;&#x2620;&#xFE0F; Complete Javascripts Course</title>
+  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous" />
+  <style>
+      td {
+            border: 1px solid #ddd;
+            padding: 10px;
+            border-radius: 15px;
+        }
+  </style>
+</head>
+
+<body>
+  <br />
+  <br />
+  <center>
+    <!-- <input type="text" id="item"> -->
+    <br />
+    <div id="wrapper">&#x1F4C3; &#x1F3EA; 👾</div>
+    <br />
+    <div>
+        <input type="text" id="addFriend" required>&nbsp;
+        <input type="button" id="addNew" class="btn btn-outline-primary" value="Add Friend"> 
+    </div>
+ <div id="message"></div>
+    <div id="output">
+    <h1>Shopping List</h1>
+    <ol id="sList">
+      
+    </ol>
+    </div>
+
+    <br><br>
+
+    <!-- <a href="./Element_Click_Handler.html">Element Click Handler</a> -->
+  
+  </center>
+  <script>
+
+      window.onload = build;
+      var el = document.getElementById("meassage");
+      var myArray = ["Laurence", "Mike", "John", "Larry","Kim"]
+      var addNew = document.getElementById('addNew');
+       
+  // Building Dynamic Table  
+
+        addNew.onclick = function () {
+            var q = document.getElementById('addFriend').value;
+            var tr = document.createElement('tr');
+            tr.setAttribute('data-row', myArray.length);
+            tr.setAttribute('data-vote', 0);
+            // tr.setAttribute('data-vote', 0);
+            // tr.setAttribute('data-vote', );
+            tr.innerHTML = '<td class="box">' + (myArray.length + 1) + '</td><td>' + q + '</td><td>0</td>';
+            tr.innerHTML = '<td class="box">' + (myArray.length + 1) + '</td><td>' + q + '</td><td><div align="center"><button class="btn btn-outline-danger">Vote</button></div></td>';
+            var container = document.querySelector('#output table tbody');
+            container.appendChild(tr);
+            myArray.push(q);
+            voteCount();
+        }
+// Building Table
+      function build() {
+            var html = "<h1>My Voting Table</h1><table> <tr><td>No.</td><td>Names</td><td>Vote for change</td><td>Votes</td></tr><br>";
+            for (var x = 0; x < myArray.length; x++) {
+                html += '<tr data-row="' + x + '" data-vote="0"><td>' + (x + 1) + '</td><td>' + myArray[x] + 
+                '</td><td><div class="box"  align="center"><button class="btn btn-outline-danger">Vote</button></div></td><td>0</td></tr>';
+            }
+            html += '</table>';
+            document.getElementById('output').innerHTML = html;
+            voteCount();
+        }
+// Dynamic Vote Count
+         function voteCount() {
+            var elbox = document.querySelectorAll('#output .box');
+            var a;
+            var v;
+            for (var x = 0; x < elbox.length; x++) {
+                elbox[x].onclick = function () {
+                    a = this.closest('[data-row]').getAttribute('data-row');
+                    // message.innerHTML = myArray[a] + " is on row #" + a;
+                    // console.log(a);
+                    // console.dir(a);
+                    v = this.closest('[data-vote]').getAttribute('data-vote');
+
+                    console.log(v);
+                    
+                    v++;
+                    this.parentElement.lastElementChild.innerText = v;
+                    this.parentElement.setAttribute("data-vote", v);
+                }
+            }
+        }
+  </script>
+
+  <script src="https://code.jquery.com/jquery-3.5.0.js" integrity="sha256-r/AaFHrszJtwpe+tHyNi/XCfMxYpbsRg2Uqn0x3s2zc="
+    crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>

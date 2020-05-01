@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>&#x1F3F4;&#x200D;&#x2620;&#xFE0F; Complete Javascripts Course</title>
+  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous" />
+  <style>
+      td {
+            border: 1px solid #ddd;
+            padding: 10px;
+            border-radius: 15px;
+        }
+  </style>
+</head>
+
+<body>
+  <br />
+  <br />
+  <center>
+    <!-- <input type="text" id="item"> -->
+    <br />
+    <div id="wrapper">&#x1F4C3; &#x1F3EA; 👾</div>
+    <br />
+      <div id="message">Information about JavaScript</div>
+    </div>
+    <div id="output"></div>
+
+    <br><br>
+
+    <a href="./Element_Click_Handler.html">Element Click Handler</a>
+  
+  </center>
+  <script>
+
+      window.onload = build;
+      var el = document.getElementById("meassage");
+      var myArray = ["Laurence", "Mike", "John", "Larry","Kim","Joanne","Lisa","Janet","Jane","Joylean","Khanne"]
+
+      function build() {
+            var html = "<h1>My Voting Table</h1><table> <tr><td>No.</td><td>Names</td><td>Votes.</td></tr><br>";
+            for (var x = 0; x < myArray.length; x++) {
+                html += '<tr data-row="' + x + '" data-vote="0"><td class="box" >' + (x + 1) + '</td><td>' + myArray[x] + '</td><td>0</td></tr>';
+            }
+            html += '</table>';
+            document.getElementById('output').innerHTML = html;
+            var elbox = document.querySelectorAll('#output .box');
+            var a;
+            var v;
+            for (var x = 0; x < elbox.length; x++) {
+                elbox[x].onclick = function () {
+                    //a = this.parentElement.getAttribute('data-row');
+                    a = this.closest('[data-row]').getAttribute('data-row');
+                    console.log(myArray[a]);
+                    // message.innerHTML = myArray[a] + " is on row #" + a;
+                    v = this.closest('[data-vote]').getAttribute('data-vote');
+                    v++;
+                    console.log(this.parentElement.lastElementChild);
+                    this.parentElement.lastElementChild.innerText = v;
+                    this.parentElement.setAttribute("data-vote",v);
+                }
+            }
+        }
+  </script>
+
+  <script src="https://code.jquery.com/jquery-3.5.0.js" integrity="sha256-r/AaFHrszJtwpe+tHyNi/XCfMxYpbsRg2Uqn0x3s2zc="
+    crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>

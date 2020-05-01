@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>&#x1F3F4;&#x200D;&#x2620;&#xFE0F; Complete Javascripts Course</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous" />
+    <style>
+        div .output {
+            background-color: red;
+        }
+    </style>
+</head>
+
+<body>
+    <br />
+    <br />
+    <center>
+        <!-- <input type="text" id="item"> -->
+        <br />
+        <div id="wrapper">&#x1F4C3; &#x1F3EA; 👾</div>
+        <br />
+        <div id="message">Message 1</div>
+        <div id="message1">Message 2</div>
+        <div id="message">Message 1</div>
+        <div class="output">Test Me 1</div>
+        <div class="output">Test Me 2</div>
+        <div id="pickme1">
+            <div class="output highlight">Test Me 3</div>
+        </div>
+        <input type="text" name="queryStuff" id="queryStuff">
+        <input type="button" class="btn btn-outline-warning" onclick="mySel()" value="Get Query">
+        <div id="pickme2">
+            <div class="output">Test Me 4</div>
+            <div class="output">Test Me 5</div>
+            <div class="output">Test Me 6</div>
+        </div>
+        <div class="output highlight">Test Me 7</div>
+        <div class="output">Test Me 8</div>
+        <div class="output">Test Me 9</div>
+        <div class="output">Test Me 10</div>
+    </center>
+    <script>
+        var el = document.querySelectorAll("div .output");
+
+        function mySel() {
+            var a = document.getElementById('queryStuff').value;
+            var el = qs(a);
+            var html = "Results<br>";
+            for (var x = 0; x < el.length; x++) {
+                html += el[x].innerText + "<br>";
+            }
+            document.getElementById('message').innerHTML = html;
+        }
+
+        function qs(el) {
+            return document.querySelectorAll(el);
+        }
+    </script>
+
+    <script src="https://code.jquery.com/jquery-3.5.0.js"
+        integrity="sha256-r/AaFHrszJtwpe+tHyNi/XCfMxYpbsRg2Uqn0x3s2zc=" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>&#x1F3F4;&#x200D;&#x2620;&#xFE0F; Complete Javascripts Course</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous" />
+    <style>
+        .box1 {
+            background-color: aqua;
+            font-size: 1.5em;
+            color: #fff;
+        }
+
+        .box2 {
+            background-color: red;
+            font-size: 0.5em;
+            color: #ddd;
+        }
+
+        #one,
+        #two,
+        #three {
+            width: 100px;
+            height: 100px;
+            display: inline-block;
+            border: 2px solid black;
+            border-radius: 15px;
+            padding: 5px 0px;
+            border-left-color: pink;
+            border-top-color: orange;
+            border-right-color: red;
+            border-bottom-style: dashed;
+        }
+
+        .active {
+            background-color: purple;
+        }
+    </style>
+</head>
+
+<body>
+    <br />
+    <br />
+    <center>
+        <!-- <input type="text" id="item"> -->
+        <br />
+        <div id="wrapper">&#x1F4C3; &#x1F3EA; 👾</div>
+        <br />
+        <div id="one" class="myClass">Box One</div>
+        <div id="two" class="myClass active">Box Two</div>
+        <div id="three" class="myClass">Box Three</div>
+        <div id="one" class="myClass">Box Four</div>
+        <div id="two" class="myClass active">Box Five</div>
+        <div id="three" class="myClass">Box Six</div>
+        <div id="one" class="myClass">Box Seven</div>
+        <div id="two" class="myClass active">Box Eight</div>
+        <div id="three" class="myClass">Box Nine</div>
+        <div id="one" class="myClass">Box Ten</div>
+        <div id="two" class="myClass active">Box Eleven</div>
+        <div id="three" class="myClass">Box Twelve</div>
+<br><br><br>
+<a href="./JavaScript_Accordian.html"><button type="button" class="btn btn-outline-warning">JavaScript_Accordian</button></a>
+    </center>
+    <script>
+        var el = document.querySelectorAll('.myClass');
+        for (var x = 0; x < el.length; x++) {
+            el[x].onclick = function () {
+                upClass(el, 'active', 'remove');
+                if (!this.classList.contains('active')) {
+                    this.classList.add('active');
+                }
+                // this.classList.toggle('box1');
+            }
+        }
+
+        function upClass(e, c, a) {
+            for (var x = 0; x < e.length; x++) {
+                e[x].classList[a](c);
+            }
+        }
+    </script>
+
+    <script src="https://code.jquery.com/jquery-3.5.0.js"
+        integrity="sha256-r/AaFHrszJtwpe+tHyNi/XCfMxYpbsRg2Uqn0x3s2zc=" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>
