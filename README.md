@@ -2,7 +2,7 @@
 
 ## This course will guide u to develop your javaScript Coding Knowledge.
 
-![image.png](attachment: js_logo.png)
+![JavaScript Image](./js_logo.png)
 
 ### Content
 
@@ -21,6 +21,8 @@
 - js.
 - Friend Voting System v1.0.0.
 - Friend Voting System v1.1.0.
+- String Manipulation.
+- String Method Replace.
 
 `Shubham Kumar` <b>Maintains</b> `Udemy`
 
