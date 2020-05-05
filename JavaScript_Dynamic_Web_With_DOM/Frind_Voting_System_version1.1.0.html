@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous" />
+    <style>
+        body {
+            margin: none;
+            background-color: rgb(189, 189, 189);
+        }
+
+        .buttons {
+            text-align: center;
+            border: none;
+            outline: none;
+            color: cornflowerblue;
+        }
+
+        #text_input {
+            outline: none;
+            padding: 10px 0px 10px 0px;
+            border: none;
+            border-radius: 5px;
+            box-shadow: 0px 0px 1px 1px black;
+        }
+
+        #add-here {
+            outline: none;
+            padding: 10px 10px 10px 10px;
+            border: none;
+            background-color: rgb(23, 100, 168);
+            border-radius: 5px;
+            color: aliceblue;
+        }
+
+        h1 {
+            text-transform: uppercase;
+            font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+        }
+
+        td {
+            border: 1px solid #ddd;
+            padding: 20px 10px 20px 10px;
+            border-radius: 15px;
+        }
+    </style>
+</head>
+
+<body>
+    <br />
+    <br />
+    <center>
+        <!-- <input type="text" id="item"> -->
+        <br />
+        <div id="wrapper">&#x1F4C3; &#x1F3EA; 👾</div>
+        <br />
+        <div>
+            <input type="text" id="text_input" required>&nbsp;
+            <input type="button" id="add-here" value="Add Friend">
+        </div>
+        <div id="message"></div>
+        <div id="output">
+            <h1>Voting List</h1>
+        </div>
+        <table>
+            <tbody id="tbody">
+                <tr>
+                    <td>#</td>
+                    <td>Names</td>
+                    <td>Vote for change</td>
+                    <td>Votes</td>
+                </tr>
+            </tbody>
+        </table>
+        <br>
+        <br>
+    </center>
+</body>
+<script>
+    var j = 0;
+
+    document.getElementById("add-here").addEventListener("click", table_mod);
+
+    function table_mod() {
+        if (document.getElementById("text_input").value != "") {
+            j++;
+            createObject(j);
+        }
+    }
+
+    function createObject(x) {
+        var Tr = document.createElement('tr');
+        document.getElementById("tbody").appendChild(Tr);
+        Tr.id = "tr" + x;
+
+        var firstTd = document.createElement('td');
+        document.getElementById("tr" + x).appendChild(firstTd).innerText = j;
+        firstTd.id = "firstTd" + x;
+
+        var secondTd = document.createElement('td');
+        var name = document.getElementById("text_input").value;
+        document.getElementById("tr" + x).appendChild(secondTd).innerText = name;
+        secondTd.id = "secondTd" + x;
+
+        var thirdTd = document.createElement('td');
+        document.getElementById("tr" + x).appendChild(thirdTd);
+        thirdTd.id = "thirdTd" + x;
+
+        var button = document.createElement('button');
+        document.getElementById("thirdTd" + x).appendChild(button);
+        button.id = "button" + x;
+        button.className = "buttons";
+        button.className = "btn btn-outline-warning";
+        button.innerText = "Vote"
+
+        var fourthTd = document.createElement('td');
+        document.getElementById("tr" + x).appendChild(fourthTd).innerText = 0;
+        fourthTd.id = "fourthTd" + x;
+    }
+
+    document.addEventListener("click", function (e) {
+        for (var p = 0; p <= j; p++) {
+            if (e.target && e.target.id == "button" + p) {
+                document.getElementById("fourthTd" + p).innerText++;
+            }
+        }
+    });
+</script>
+
+
+<script src="https://code.jquery.com/jquery-3.5.0.js" integrity="sha256-r/AaFHrszJtwpe+tHyNi/XCfMxYpbsRg2Uqn0x3s2zc="
+    crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>

@@ -8,11 +8,11 @@
   <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous" />
   <style>
-      td {
-            border: 1px solid #ddd;
-            padding: 10px;
-            border-radius: 15px;
-        }
+    td {
+      border: 1px solid #ddd;
+      padding: 10px;
+      border-radius: 15px;
+    }
   </style>
 </head>
 
@@ -25,63 +25,68 @@
     <div id="wrapper">&#x1F4C3; &#x1F3EA; 👾</div>
     <br />
     <div>
-        <input type="text" id="addFriend" required>&nbsp;
-        <input type="button" id="addNew" class="btn btn-outline-primary" value="Add Friend"> 
+      <input type="text" id="addFriend" required>&nbsp;
+      <input type="button" id="addNew" class="btn btn-outline-primary" value="Add Friend">
     </div>
- 
+
     <div id="output"></div>
 
     <br><br>
 
     <!-- <a href="./Element_Click_Handler.html">Element Click Handler</a> -->
-  
+
   </center>
   <script>
+    window.onload = build;
+    var el = document.getElementById("meassage");
+    var myArray = ["Laurence", "Mike", "John", "Larry", "Kim", "Joanne", "Lisa", "Janet", "Jane", "Joylean",
+      "Khanne"
+    ]
+    var addNew = document.getElementById('addNew');
 
-      window.onload = build;
-      var el = document.getElementById("meassage");
-      var myArray = ["Laurence", "Mike", "John", "Larry","Kim","Joanne","Lisa","Janet","Jane","Joylean","Khanne"]
-      var addNew = document.getElementById('addNew');
-       
-  // Building Dynamic Table  
+    // Building Dynamic Table  
 
-        addNew.onclick = function () {
-            var q = document.getElementById('addFriend').value;
-            var tr = document.createElement('tr');
-            tr.setAttribute('data-row', myArray.length);
-            tr.setAttribute('data-vote', 0);
-            tr.innerHTML = '<td class="box">' + (myArray.length + 1) + '</td><td>' + q + '</td><td>0</td>';
-            var container = document.querySelector('#output table tbody');
-            container.appendChild(tr);
-            myArray.push(q);
-            voteCount();
+    addNew.onclick = function () {
+      var q = document.getElementById('addFriend').value;
+      var tr = document.createElement('tr');
+      tr.setAttribute('data-row', myArray.length);
+      tr.setAttribute('data-vote', 0);
+      tr.innerHTML = '<td class="box">' + (myArray.length + 1) + '</td><td>' + q +
+        '</td><td><button align="center">Vote</button></td>';
+      var container = document.querySelector('#output table tbody');
+      container.appendChild(tr);
+      myArray.push(q);
+      voteCount();
+    }
+    // Building Table
+    function build() {
+      var html =
+        "<h1>My Voting Table</h1><table> <tr><td>No.</td><td>Names</td><td>Vote for Change.</td></tr><br>";
+      for (var x = 0; x < myArray.length; x++) {
+        html += '<tr data-row="' + x + '" data-vote="0"><td class="box" >' + (x + 1) + '</td><td>' + myArray[
+            x] +
+          '</td><td ><button class="btn btn-outline-danger" align="center">Vote</button></td></tr>';
+      }
+      html += '</table>';
+      document.getElementById('output').innerHTML = html;
+      voteCount();
+    }
+    // Dynamic Vote Count
+    function voteCount() {
+      var elbox = document.querySelectorAll('#output .box');
+      var a;
+      var v;
+      for (var x = 0; x < elbox.length; x++) {
+        elbox[x].onclick = function () {
+          a = this.closest('[data-row]').getAttribute('data-row');
+          // message.innerHTML = myArray[a] + " is on row #" + a;
+          v = this.closest('[data-vote]').getAttribute('data-vote');
+          v++;
+          this.parentElement.lastElementChild.innerText = v;
+          this.parentElement.setAttribute("data-vote", v);
         }
-// Building Table
-      function build() {
-            var html = "<h1>My Voting Table</h1><table> <tr><td>No.</td><td>Names</td><td>Votes.</td></tr><br>";
-            for (var x = 0; x < myArray.length; x++) {
-                html += '<tr data-row="' + x + '" data-vote="0"><td class="box" >' + (x + 1) + '</td><td>' + myArray[x] + '</td><td>0</td></tr>';
-            }
-            html += '</table>';
-            document.getElementById('output').innerHTML = html;
-            voteCount();
-        }
-// Dynamic Vote Count
-         function voteCount() {
-            var elbox = document.querySelectorAll('#output .box');
-            var a;
-            var v;
-            for (var x = 0; x < elbox.length; x++) {
-                elbox[x].onclick = function () {
-                    a = this.closest('[data-row]').getAttribute('data-row');
-                    // message.innerHTML = myArray[a] + " is on row #" + a;
-                    v = this.closest('[data-vote]').getAttribute('data-vote');
-                    v++;
-                    this.parentElement.lastElementChild.innerText = v;
-                    this.parentElement.setAttribute("data-vote", v);
-                }
-            }
-        }
+      }
+    }
   </script>
 
   <script src="https://code.jquery.com/jquery-3.5.0.js" integrity="sha256-r/AaFHrszJtwpe+tHyNi/XCfMxYpbsRg2Uqn0x3s2zc="
