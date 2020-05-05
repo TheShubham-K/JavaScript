@@ -6,15 +6,21 @@
 
 ### Content
 
-' - Mini-Calculator. '<br />
-' - Remove Duplicates. '<br />
-' - shopping List. '<br />
-' - Window Object Model. '<br />
-' - Word Guessing Game. '<br/>
-' - Deck Of Cards. '<br/>
-' - Calculator Using CallBack. '<br/>
-' - Code cracking Game. '<br/>
-' - Functions.'
+- Mini-Calculator.
+- Remove Duplicates.
+- Shopping List.
+- Window Object Model.
+- Word Guessing Game.
+- Deck Of Cards.
+- Calculator Using CallBack.
+- Code cracking Game.
+- Functions.
+- Built in JavaScript.
+- JavaScript Dynamic Web With DOM.
+- Shuffle Array.
+- js.
+- Friend Voting System v1.0.0.
+- Friend Voting System v1.1.0.
 
 `Shubham Kumar` <b>Maintains</b> `Udemy`
 
