@@ -23,6 +23,13 @@
 - Friend Voting System v1.1.0.
 - String Manipulation.
 - String Method Replace.
+- JavaScript Math Object.
+- Word Scramble Game.
+
+# Contact.
+The best way to get touch with me is [on Instagram](https://www.instagram.com/subham.kumar032/).
+
+
 
 `Shubham Kumar` <b>Maintains</b> `Udemy`
 
