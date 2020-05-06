@@ -32,7 +32,3 @@ The best way to get touch with me is [on Instagram](https://www.instagram.com/su
 
 
 `Shubham Kumar` <b>Maintains</b> `Udemy`
-
-## Contact
-
-The Best way to get in touch with me is [on Instagram](https://www.instagram.com/subham.kumar032/).
