@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>&#x1F3F4;&#x200D;&#x2620;&#xFE0F; Complete Javascripts Course</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous" />
+    <style>
+        .gameboard {
+            width: 550px;
+            height: 650px;
+            margin: 0 auto;
+            border: 1px solid #ddd;
+        }
+
+        .office {
+            float: left;
+            width: 120px;
+            height: 170px;
+            overflow: hidden;
+            position: relative;
+            border: 1px solid #ddd;
+            margin: 10px 30px;
+        }
+
+
+        .desk {
+            width: 100%;
+            height: 50px;
+            bottom: 0px;
+            position: absolute;
+            background-color: burlywood;
+            z-index: 2;
+        }
+
+        .computer {
+            background: url('./comp.jpg') bottom center no-repeat;
+            background-size: 100% 100%;
+            position: absolute;
+            top: 100%;
+            width: 100%;
+            height: 80%;
+
+        }
+
+        .popup {
+            top: 0;
+        }
+    </style>
+</head>
+
+<body>
+    <br />
+    <br />
+    <center>
+        <!-- <input type="text" id="item"> -->
+        <br />
+        <div id="wrapper">&#x1F4C3; &#x1F3EA; 👾</div>
+        <br />
+        Score : <span class="score">0</span>
+        <input type="button" class="btn btn-outline-danger" onClick="start()" value="Start Game">
+        <div id="message">Complete JavaScript Course</div>
+        <div class="gameboard"></div>
+
+        <div id="guess"></div>
+        <br /><br />
+    </center>
+    <script>
+        window.onload = build;
+        var message = document.getElementById("message");
+        var message1 = document.getElementById("gameboard");
+
+
+
+        var computer;
+        var offices = 9;
+        var timer;
+        var sCom;
+        var score = 0;
+        var cOff = true;
+
+        function build() {
+            var html = "<h1>Hit the computer</h1>";
+            for (var x = 0; x < offices; x++) {
+                html += '<div class="office"><div class="desk"></div><div class="computer"></div></div>';
+            }
+            document.querySelector('.gameboard').innerHTML = html;
+            computer = document.querySelectorAll('.computer');
+            for (var x = 0; x < computer.length; x++) {
+                computer[x].addEventListener('click', hitcomputer, false);
+            }
+        }
+
+        function popup() {
+            cOff = true;
+            sCom = computer[Math.floor(Math.random() * computer.length)];
+            sCom.classList.add('popup');
+            var rTime = (Math.floor(Math.random() * 10) * 100) + 500;
+            timer = setTimeout(hidecomputer, rTime);
+        }
+
+        function hidecomputer() {
+            sCom.classList.remove('popup');
+            popup();
+        }
+
+        function hitcomputer() {
+            event.target.classList.remove('popup');
+            if (cOff) {
+                cOff = false;
+                score++;
+                document.querySelector('.score').innerHTML = score;
+            }
+            popup();
+        }
+
+        function start() {
+            popup();
+        }
+    </script>
+
+    <script src="https://code.jquery.com/jquery-3.5.0.js"
+        integrity="sha256-r/AaFHrszJtwpe+tHyNi/XCfMxYpbsRg2Uqn0x3s2zc=" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>
