@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>&#x1F3F4;&#x200D;&#x2620;&#xFE0F; Complete Javascripts Course</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous" />
+    <style>
+
+    </style>
+</head>
+
+<body>
+    <br />
+    <br />
+    <center>
+        <!-- <input type="text" id="item"> -->
+        <br />
+        <div id="wrapper">&#x1F4C3; &#x1F3EA; 👾</div>
+        <br />
+        <input type="button" class="btn btn-outline-danger" onClick="myFun()" value="Validate Email">
+        <div id="message">Complete JavaScript Course</div>
+        <div id="output"></div>
+        <input type="text" id="email" value="email@gmail.com">
+        <input type="text" id="num" value="123321">
+        <input type="text" id="cha" value="characters">
+        <br /><br />
+    </center>
+    <script>
+        window.onload = build;
+        var message = document.getElementById("message");
+        var output = document.getElementById("output");
+
+        var str =
+            "absdcksdsldc ckd c ds cl sdl cls JavaScript afksldnfd 123 javaScript 1d556d4 64d javaScript 4df Javascript 4654 javaScript";
+
+        function myFun() {
+            e = document.getElementById("email").value;
+            var p = /([a-zA-Z0-9._-]+@[a-zA-Z0-9._-]+\.[a-zA-Z.]+)/ig;
+            var r = e.match(p);
+            var t = r == null ? false : true;
+            console.log(t);
+            return t;
+        }
+    </script>
+
+
+
+    <script src="https://code.jquery.com/jquery-3.5.0.js"
+        integrity="sha256-r/AaFHrszJtwpe+tHyNi/XCfMxYpbsRg2Uqn0x3s2zc=" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>
