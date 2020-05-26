@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>&#x1F3F4;&#x200D;&#x2620;&#xFE0F; Complete Javascripts Course</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous" />
+    <style>
+
+    </style>
+</head>
+
+<body>
+    <br />
+    <br />
+    <center>
+        <!-- <input type="text" id="item"> -->
+        <br />
+        <div id="wrapper">&#x1F4C3; &#x1F3EA; 👾</div>
+        <br />
+        <input type="button" class="btn btn-outline-danger" onClick="myFun()" value="Validate Email">
+        <div id="message">Complete JavaScript Course</div>
+        <div id="output"></div>
+        <input type="text" id="email" value="email@gmail.com">
+        <input type="text" id="num" value="123321">
+        <input type="text" id="cha" value="characters">
+        <br /><br />
+    </center>
+    <script>
+        window.onload = build;
+        var message = document.getElementById("message");
+        var output = document.getElementById("output");
+
+        // number input only digits
+        // email input
+        // text input only char
+        // all need to have content
+        var output = document.getElementById('output');
+        var str =
+            "abasdn skjkj eqwj k JavaScript adsjkj asllk 123432 43453 321 3 34 javascript 432 432 JavaScript 342 JavaScript4121";
+
+        function cEmail(e) {
+            var p = /([a-zA-Z0-9._-]+@[a-zA-Z0-9._-]+\.[a-zA-Z.]+)/ig;
+            var r = e.match(p);
+            return r == null ? false : true;
+        }
+
+        function cNum(e) {
+            var p = /\D/;
+            var r = e.match(p);
+            return r == null ? true : false;
+        }
+
+        function cChar(e) {
+            var p = /[^A-Za-z]/ig;
+            var r = e.match(p);
+            return r == null ? true : false;
+        }
+
+        function myFun() {
+            var i = document.getElementsByTagName('input');
+            for (var x = 0; x < i.length; x++) {
+                //console.log(i[x]);
+                if (i[x].value == "") {
+                    console.log('No Value in ' + i[x].id);
+                }
+                if (i[x].type == "text") {
+                    if (i[x].id == "email") {
+                        if (cEmail(i[x].value)) {
+                            console.log('Email Valid');
+                        } else {
+                            console.log('Bad Email');
+                        }
+                    }
+                    if (i[x].id == "num") {
+                        if (cNum(i[x].value)) {
+                            console.log('Num only Valid');
+                        } else {
+                            console.log('Non Number in the string');
+                        }
+                    }
+                    if (i[x].id == "cha") {
+                        if (cChar(i[x].value)) {
+                            console.log('Char only Valid');
+                        } else {
+                            console.log('Non Char is in the string');
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
+
+
+    <script src="https://code.jquery.com/jquery-3.5.0.js"
+        integrity="sha256-r/AaFHrszJtwpe+tHyNi/XCfMxYpbsRg2Uqn0x3s2zc=" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>
