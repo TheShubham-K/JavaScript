@@ -56,7 +56,7 @@
         var gamePlay = false;
         var tileImages = [],
             tileArray = [],
-            tileFlippedOver = [];
+            tfo = [];
         var cardFlipped = -1;
         var timer;
         var sb = document.getElementById('start');
@@ -86,32 +86,51 @@
                 html += '<div class="gameTile">';
                 html += '<img id="cardz' + x +
                     '" src="http://via.placeholder.com/250/000000/ffffff?text=click" onclick="pickCard(' + (x -
-                        1) +
-                    ',this)" class="flipImage"></div>';
+                        1) + ',this)" class="flipImage"></div>';
             });
             gameBoard.innerHTML = html;
         }
 
         function pickCard(i, t) {
             console.log(event.target);
-            if (cardFlipped >= 0) {
-                cardFlip(i, t);
-                if (checkSrc(tileFlippedOver[tileFlippedOver.length - 1]) == checkSrc(tileFlippedOver[tileFlippedOver
-                        .length -
-                        2])) {
-                    message.innerHTML = "Match Found";
+            // not in array of flipped over
+            // not locked out
+            if (!playLockout && !isinArray(t.id, tfo)) {
+                if (cardFlipped >= 0) {
+                    cardFlip(i, t);
+                    playLockout = true;
+                    if (checkSrc(tfo[tfo.length - 1]) == checkSrc(tfo[tfo.length - 2])) {
+                        message.innerHTML = "Match Found";
+                        cardFlipped = -1;
+                        playLockout = false;
+                    } else {
+                        message.innerHTML = "No Match";
+                        timer = setInterval(hideCard, 1000);
+                    }
+                    //check to see if its a match
                 } else {
-                    message.innerHTML = "No Match";
-                    timer = setInterval(hideCard, 1000);
+                    cardFlipped = i;
+                    cardFlip(i, t);
                 }
-                //check to see if its a match
             } else {
-                cardFlipped = i;
-                cardFlip(i, t);
+                message.innerHTML = "Locked Out";
             }
         }
 
-        function hideCard() {}
+        function isinArray(v, array) {
+            return array.indexOf(v) > -1;
+        }
+
+        function hideCard() {
+            for (var x = 0; x < 2; x++) {
+                var vid = tfo.pop();
+                document.getElementById(vid).src = 'http://via.placeholder.com/250/000000/ffffff?text=click';
+            }
+            clearInterval(timer);
+            cardFlipped = -1;
+            playLockout = false;
+            message.innerHTML = "Select Again";
+        }
 
         function checkSrc(a) {
             return document.getElementById(a).src;
@@ -119,7 +138,7 @@
 
         function cardFlip(i, t) {
             t.src = "http://via.placeholder.com/250/ffffff/000000?text=" + tileArray[i];
-            tileFlippedOver.push(t.id);
+            tfo.push(t.id);
         }
 
         function buildArray() {
