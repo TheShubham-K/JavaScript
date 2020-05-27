@@ -9,14 +9,14 @@
 - Mini-Calculator.
 - Remove Duplicates.
 - Shopping List.
-- Window Object Model.
+- [Window Object Model.](Window_Objects)
 - Word Guessing Game.
 - Deck Of Cards.
 - [Calculator Using CallBack.](Calculator_Using_CallBack)
 - Code cracking Game.
 - Functions.
 - [Built in JavaScript.](Built_in_JavaScript)
-- [Intermediate JavaScript.](Intermediate JavaScript)
+- [Intermediate JavaScript.](Intermediate_JavaScript)
 - [JavaScript Dynamic Web With DOM.](JavaScript_Dynamic_Web_With_DOM)
 - Shuffle Array.
 - js.
