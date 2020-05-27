@@ -103,6 +103,10 @@
                         message.innerHTML = "Match Found";
                         cardFlipped = -1;
                         playLockout = false;
+                        // Conclude the game 
+                        if (tfo.length == tileArray.length) {
+                            gameover();
+                        }
                     } else {
                         message.innerHTML = "No Match";
                         timer = setInterval(hideCard, 1000);
@@ -115,6 +119,15 @@
             } else {
                 message.innerHTML = "Locked Out";
             }
+        }
+
+        function gameover() {
+            message.innerHTML = "GAME OVER";
+            sb.style.display = "block";
+            gamePlay = false;
+            tfo = [];
+            tileImages = [];
+            gameBoard.innerHTML = "";
         }
 
         function isinArray(v, array) {
