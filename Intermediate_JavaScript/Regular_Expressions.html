@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>&#x1F3F4;&#x200D;&#x2620;&#xFE0F; Complete Javascripts Course</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous" />
+    <style>
+
+    </style>
+</head>
+
+<body>
+    <br />
+    <br />
+    <center>
+        <!-- <input type="text" id="item"> -->
+        <br />
+        <div id="wrapper">&#x1F4C3; &#x1F3EA; 👾</div>
+        <br />
+        <input type="button" class="btn btn-outline-danger" onClick="myFun()" value="Click">
+        <div id="message">Complete JavaScript Course</div>
+        <div id="output"></div>
+
+        <div id="guess"></div>
+        <br /><br />
+    </center>
+    <script>
+        window.onload = build;
+        var message = document.getElementById("message");
+        var output = document.getElementById("output");
+
+        var str =
+            "absdcksdsldc ckd c ds cl sdl cls JavaScript afksldnfd 123 javaScript 1d556d4 64d javaScript 4df Javascript 4654 javaScript";
+
+        function myFun() {
+            var p = /JavaScript/ig;
+            var r = str.match(p);
+            r.forEach(function (e) {
+                console.log(e);
+
+            })
+            console.log(r);
+
+        }
+    </script>
+
+
+
+    <script src="https://code.jquery.com/jquery-3.5.0.js"
+        integrity="sha256-r/AaFHrszJtwpe+tHyNi/XCfMxYpbsRg2Uqn0x3s2zc=" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>
