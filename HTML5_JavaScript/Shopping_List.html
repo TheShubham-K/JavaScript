@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>&#x1F3F4;&#x200D;&#x2620;&#xFE0F; Complete Javascripts Course</title>
+  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous" />
+  <style>
+    .item {
+      border: 1px solid black;
+      padding: 2%;
+      width: 29%;
+      float: left;
+      height: 300px;
+    }
+
+    .img-fluid {
+      max-width: 100%;
+    }
+
+    .productItem,
+    .btn {
+      border: 1px solid black;
+      text-decoration: none;
+      background-color: green;
+      color: azure;
+      border-radius: 10px;
+      padding: 2px;
+      font-size: 0.6em;
+      display: inline-block;
+    }
+
+    .remove {
+      background-color: red;
+      padding: 5px;
+
+    }
+
+    td {
+      text-align: center;
+      border: 1px solid black;
+      padding: 5px;
+    }
+
+    th {
+      border: 1px solid black;
+      text-align: center;
+      font-size: 1.3em;
+    }
+  </style>
+</head>
+
+<body>
+  <br />
+  <br />
+  <center>
+    <!-- <input type="text" id="item"> -->
+
+    <br />
+    <div id="wrapper">&#x1F4C3; &#x1F3EA; 👾</div>
+    <br />
+    <div id="output">Complete JavaScript Course </div>
+    <!-- <div>JSON: JavaScript Object Notation</div> -->
+    <div id="output2">Shopping Cart</div>
+    <!-- <input type="button" class="btn btn-outline-warning" onClick="lookUp()" value="Find Text"> -->
+
+    <br /><br />
+  </center>
+  <script>
+    var items = [{
+        name: 'iPhone',
+        details: 'White',
+        cost: 500
+      }, {
+        name: 'iPad',
+        details: 'White',
+        cost: 800
+      }, {
+        name: 'Cable',
+        details: '3 foot',
+        cost: 10
+      }, {
+        name: 'Camera',
+        details: '25MP',
+        cost: 300
+      }, {
+        name: 'Laptop',
+        details: 'Intel i7',
+        cost: 1200
+      },
+      {
+        name: 'LCD Monitor',
+        details: '24 inch',
+        cost: 200
+      }, {
+        name: 'LCD Monitor',
+        details: '24 inch',
+        cost: 200
+      }, {
+        name: 'TV',
+        details: '50 inch',
+        cost: 450
+      },
+      {
+        name: 'iPhone',
+        details: 'White',
+        cost: 500
+      }, {
+        name: 'iPad',
+        details: 'White',
+        cost: 800
+      }, {
+        name: 'Cable',
+        details: '3 foot',
+        cost: 10
+      }, {
+        name: 'Camera',
+        details: '25MP',
+        cost: 300
+      }, {
+        name: 'Laptop',
+        details: 'Intel i7',
+        cost: 1200
+      }, {
+        name: 'LCD Monitor',
+        details: '24 inch',
+        cost: 200
+      }, {
+        name: 'TV',
+        details: '50 inch',
+        cost: 450
+      }
+    ];
+    var output = document.getElementById("output");
+    var output2 = document.getElementById("output2");
+    var html = '<br>';
+    var shopcart = [];
+    window.onload = init;
+
+    function init() {
+      buildItems();
+      var q = document.querySelectorAll('.productItem');
+      for (var x = 0; x < q.length; x++) {
+        q[x].addEventListener('click', function (e) {
+          e.preventDefault();
+          addToCart();
+        })
+      }
+      outputCart();
+    }
+
+    function addToCart() {
+      var iteminfo = event.target.dataset;
+      var itemincart = false;
+      iteminfo.qty = 1;
+      shopcart.forEach(function (v) {
+        if (v.id == iteminfo.id) {
+          v.qty = parseInt(v.qty) + parseInt(iteminfo.qty);
+          itemincart = true;
+        }
+      });
+      if (!itemincart) {
+        shopcart.push(iteminfo);
+      }
+      localStorage.setItem('scart', JSON.stringify(shopcart));
+      outputCart();
+    }
+
+    function outputCart() {
+      if (localStorage.getItem('scart') != null) {
+        shopcart = JSON.parse(localStorage.getItem('scart'));
+      }
+      var html =
+        '<table><tr><th>&nbsp; Item &nbsp;</th><th>&nbsp; Quantity &nbsp;</th><th>&nbsp; Cost &nbsp;</th><th>&nbsp; ID &nbsp;</th><th>&nbsp; SubTotal &nbsp;</th><th>&nbsp; Options &nbsp;</th></tr>';
+      var total = 0;
+      shopcart.forEach(function (v) {
+        var stotal = v.qty * v.price;
+        total += stotal;
+        html += '<tr><td>' + v.name + '(' + v.s + ')</td><td>' + v.qty + '</td><td>' + v.price + '</td><td>' +
+          v.id + '</td><td>' +
+          fMoney(stotal) + '</td><td><span class="remove btn" onclick="remove(' +
+          v.id + ')">X</span></td></tr>';
+      });
+      html += '<tr><td colspan=6>Total : ' + fMoney(total) + '</td></tr></table>';
+      output2.innerHTML = html;
+    }
+
+
+    function buildItems() {
+      var x = 0;
+      items.forEach(function (v) {
+        html += '<div class="item"><h3>' + v.name +
+          '</h3><img src="https://images.indianexpress.com/2019/04/apple-ipad-mini-5th-gen.jpg" class="img-fluid"><div>' +
+          v.details +
+          ' <br><a href="#" class="productItem" data-name="' + v.name + '" data-s="' + v.details +
+          '"  data-price="' + v.cost + '" data-id="' + x + '" >Add to Cart</a></div>' + fMoney(v.cost) + '</div>';
+        x++;
+        // console.log(v);
+      })
+      output.innerHTML += html;
+    }
+
+    function remove(id) {
+      for (var x = 0; x < shopcart.length; x++) {
+        if (shopcart[x].id == id) {
+          var rem = shopcart.splice(x, 1);
+          console.log(rem);
+        }
+      }
+      localStorage.setItem('scart', JSON.stringify(shopcart));
+      outputCart();
+    }
+
+    function fMoney(n) {
+      return '$ ' + (n / 71.54).toFixed(2);
+    }
+  </script>
+
+
+
+  <script src="https://code.jquery.com/jquery-3.5.0.js" integrity="sha256-r/AaFHrszJtwpe+tHyNi/XCfMxYpbsRg2Uqn0x3s2zc="
+    crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>
