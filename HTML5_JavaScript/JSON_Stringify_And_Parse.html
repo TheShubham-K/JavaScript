@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>&#x1F3F4;&#x200D;&#x2620;&#xFE0F; Complete Javascripts Course</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous" />
+    <style>
+
+    </style>
+</head>
+
+<body>
+    <br />
+    <br />
+    <center>
+        <!-- <input type="text" id="item"> -->
+        <br />
+        <div id="wrapper">&#x1F4C3; &#x1F3EA; 👾</div>
+        <br />
+        <div id="output">Complete JavaScript Course </div>
+        <div>JSON: JavaScript Object Notation</div>
+        <div id="message">
+            </><br><br>
+            <!-- <input type="button" class="btn btn-outline-warning" onClick="lookUp()" value="Find Text"> -->
+
+            <br /><br />
+    </center>
+    <script>
+        // window.onload = init;
+        var message = document.getElementById("message");
+        var output = document.getElementById("output");
+
+        var msg = "Hello World "
+        var myObj = {
+            "msg": "Hello World!",
+            "count": 1,
+            "Secret": "JavaScript"
+        };
+        var myStr = JSON.stringify(myObj);
+        // console.log(myStr);
+        // var myObj2 = JSON.parse(myStr);
+        // console.log(myObj2);
+
+
+        if (localStorage.getItem('mes')) {
+            var myObj2 = JSON.parse(localStorage.getItem('mes'));
+            output.innerHTML = myObj2.msg + '<br>' + myObj2.count + '<br>' + myObj2.secret;
+            myObj2.count = Number(myObj2.count) + 1;
+            var myObj = {
+                "msg": "Hello World!",
+                "count": 1,
+                "Secret": "JavaScript"
+            };
+            myStr = JSON.stringify(myObj);
+        } else {
+            localStorage.setItem('mes', myStr);
+        }
+
+        /**
+    if (localStorage.getItem('count')) {
+      var cnt = Number(localStorage.getItem('count')) + 1;
+      localStorage.setItem('count', cnt);
+      output.innerHTML += cnt;
+    } else {
+      localStorage.setItem('mes', myStr);
+    }
+*/
+
+        // localStorage.setItem('test1', msg);
+    </script>
+
+
+
+    <script src="https://code.jquery.com/jquery-3.5.0.js"
+        integrity="sha256-r/AaFHrszJtwpe+tHyNi/XCfMxYpbsRg2Uqn0x3s2zc=" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>
