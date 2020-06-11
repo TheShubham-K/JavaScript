@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>&#x1F3F4;&#x200D;&#x2620;&#xFE0F; Complete Javascripts Course</title>
+  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous" />
+  <style>
+    canvas {
+      border: 1px solid rgb(235, 17, 206);
+    }
+  </style>
+</head>
+
+<body>
+  <br />
+  <br />
+  <center>
+    <!-- <input type="text" id="item"> -->
+
+    <br />
+    <div id="wrapper">&#x1F4C3; &#x1F3EA; 👾</div>
+    <br />
+    <div id="output">Complete JavaScript Course</div>
+    <br /><br />
+    <!-- <div>JSON: JavaScript Object Notation</div> -->
+    <input type="button" onClick="draw()" value="Draw" class="btn btn-outline-warning" />
+    &nbsp;
+    <input type="text" id="myWords" />
+    <br /><br />
+    <canvas id="canvas" onclick="imgData()"></canvas>
+    <!-- <canvas id="canvas4"></canvas> -->
+    <!-- <img id="myImage" src="HTML5_JavaScript/comp.jpg"> -->
+    <!-- <input type="button" class="btn btn-outline-warning" onClick="lookUp()" value="Find Text"> -->
+
+    <br /><br />
+  </center>
+  <script>
+    window.onload = init;
+    var canvas = document.getElementById('canvas');
+    var ctx = canvas.getContext('2d');
+    canvas.height = 600;
+    canvas.width = 500;
+    var pos = {
+      x: 0,
+      y: 50
+    };
+    var pos1 = {
+      x: 85,
+      y: 50
+    };
+    var pos2 = {
+      x: 250,
+      y: 50
+    };
+    var pos3 = {
+      x: 420,
+      y: 50
+    };
+
+    function init() {
+      draw();
+    }
+
+    function draw() {
+      pos.x = pos.x + 5;
+      pos1.y = pos1.y + 5;
+      pos2.y = pos2.y + 5;
+      pos3.y = pos3.y + 5;
+      if (pos.x > canvas.width) {
+        pos.x = 0;
+      }
+      if (pos1.y > canvas.height) {
+        pos1.y = 0;
+      }
+      if (pos2.y > canvas.height) {
+        pos2.y = 0;
+      }
+      if (pos3.y > canvas.height) {
+        pos3.y = 0;
+      }
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      ctx.beginPath();
+      ctx.fillStyle = "red";
+      ctx.arc(pos.x, pos.y, 50, 0, Math.PI * 2);
+      ctx.fill();
+      ctx.closePath();
+
+      ctx.beginPath();
+      ctx.fillStyle = "orange";
+      ctx.arc(pos1.x, pos1.y, 70, 0, Math.PI * 2);
+      ctx.fill();
+      ctx.closePath();
+
+      ctx.beginPath();
+      ctx.fillStyle = "yellow";
+      ctx.arc(pos2.x, pos2.y, 70, 0, Math.PI * 2);
+      ctx.fill();
+      ctx.closePath();
+      ctx.beginPath();
+
+      ctx.fillStyle = "rgb(7, 82, 245)";
+      ctx.arc(pos3.x, pos3.y, 70, 0, Math.PI * 2);
+      ctx.fill();
+      ctx.closePath();
+      window.setTimeout(draw, 50);
+    }
+  </script>
+
+  <script src="https://code.jquery.com/jquery-3.5.0.js" integrity="sha256-r/AaFHrszJtwpe+tHyNi/XCfMxYpbsRg2Uqn0x3s2zc="
+    crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>
