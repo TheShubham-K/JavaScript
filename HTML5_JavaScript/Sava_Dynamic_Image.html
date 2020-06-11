@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>&#x1F3F4;&#x200D;&#x2620;&#xFE0F; Complete Javascripts Course</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous" />
+    <style>
+        canvas {
+            border: 1px solid rgb(235, 17, 206);
+        }
+    </style>
+</head>
+
+<body>
+    <br />
+    <br />
+    <center>
+        <!-- <input type="text" id="item"> -->
+
+        <br />
+        <div id="wrapper">&#x1F4C3; &#x1F3EA; 👾</div>
+        <br />
+        <div id="output">Complete JavaScript Course</div>
+        <br /><br />
+        <!-- <div>JSON: JavaScript Object Notation</div> -->
+        <input type="color" id="bgColor">
+        <input type="button" id="save" value="save">
+        <input type="button" id="clear" value="clear"> <br><br>
+        <canvas id="canvas"></canvas>
+        <br><br>
+        <img src="" width="300" height="200" id="holder">
+        <br /><br />
+    </center>
+    <script>
+        var canvas = document.getElementById('canvas');
+        var ctx = canvas.getContext('2d');
+        var output = document.getElementById('output');
+        canvas.width = 700;
+        canvas.height = 700;
+        window.onload = init;
+        var pos = {
+            x: 0,
+            y: 0
+        };
+        var bgColor = "black";
+        var bgC = document.getElementById('bgColor');
+        bgC.addEventListener('change', function () {
+            bgColor = event.target.value;
+        })
+        document.getElementById('save').addEventListener('click', function () {
+            var dataURL = canvas.toDataURL();
+            console.log(dataURL);
+            document.getElementById('holder').src = dataURL;
+        })
+        document.getElementById('clear').addEventListener('click', function () {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+        })
+
+        function init() {
+            canvas.addEventListener('mousemove', draw);
+            canvas.addEventListener('mousemove', sPos);
+            canvas.addEventListener('mouseenter', sPos);
+        }
+
+        function draw(e) {
+            if (e.buttons !== 1) return;
+            output.innerHTML = "X = " + pos.x + " Y = " + pos.y;
+            ctx.beginPath();
+            ctx.moveTo(pos.x, pos.y);
+            sPos(e);
+            ctx.lineTo(pos.x, pos.y);
+            ctx.strokeStyle = bgColor;
+            ctx.lineWidth = 10;
+            ctx.lineCap = 'round';
+            ctx.stroke();
+        }
+
+        function sPos(e) {
+            console.dir(e);
+            pos.x = e.pageX;
+            pos.y = e.pageY;
+        }
+    </script>
+
+    <script src="https://code.jquery.com/jquery-3.5.0.js"
+        integrity="sha256-r/AaFHrszJtwpe+tHyNi/XCfMxYpbsRg2Uqn0x3s2zc=" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>
