@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>&#x1F3F4;&#x200D;&#x2620;&#xFE0F; Complete Javascripts Course</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous" />
+    <style>
+        .toggle {
+            padding: 10px;
+            background-color: aliceblue;
+            font-size: 1.3em;
+            margin: 10px;
+        }
+
+        .active {
+            background-color: aquamarine;
+            color: white;
+        }
+    </style>
+</head>
+
+<body>
+    <br />
+    <br />
+    <center>
+        <!-- <input type="text" id="item"> -->
+
+        <br />
+        <div id="wrapper">&#x1F4C3; &#x1F3EA; 👾</div>
+        <br />
+        <div id="output">Complete JavaScript Course</div>
+        <br /><br />
+        <div>JSON: JavaScript Object Notation</div>
+        <br /><br />
+        Guest Name :
+        <br /><br />
+        <input type="text" id="guestName" /> &nbsp;+ &nbsp;
+        <input type="number" id="guestNum" value="0" />&nbsp;
+        <input type="button" value="add" />
+        <script src="./AJAX_And_JSON_JavaScript/json.json"></script>
+        <!-- 
+        http://myjson.com
+      https://jsonlint.com/
+        https://en.wikipedia.org/wiki/JSON -->
+    </center>
+    <script>
+        var party = [];
+        var el;
+        var output = document.getElementById("output");
+        window.onload = init;
+        var addGuest = document.querySelector('input[type="button"]');
+        addGuest.addEventListener("click", function (e) {
+            var g = document.getElementById("guestName");
+            var n = document.getElementById("guestNum");
+            message("❌", g.value + " + " + n.value, party.length, "");
+            party.push({
+                name: g.value,
+                guests: Number(n.value),
+                status: false,
+            });
+            localStorage.setItem("party", JSON.stringify(party));
+            g.value = "";
+            n.value = 0;
+        });
+        output.addEventListener("click", function (e) {
+            el = e.target;
+            var ds = el.dataset;
+            el.classList.toggle("active");
+            el.children[0].innerHTML =
+                el.children[0].innerHTML == "❌" ? "✔️" : "❌";
+            party[ds.id].status = party[ds.id].status ? false : true;
+            localStorage.setItem("party", JSON.stringify(party));
+            // console.log(party);
+        });
+
+        function init() {
+            loadJSON(function (response) {
+                party = JSON.parse(response);
+                buildList();
+            }, '//discoveryvip.com/shared/json.php?f=party')
+        }
+
+        function buildList() {
+            if (localStorage.getItem("party")) {
+                party = JSON.parse(localStorage.getItem("party"));
+            } else {
+                party = JSON.parse(data);
+            }
+            for (var x = 0; x < party.length; x++) {
+                var person = party[x].name + " + " + party[x].guests;
+                if (party[x].status) {
+                    message("✔️", person, x, "active");
+                } else {
+                    message("❌", person, x, "");
+                }
+            }
+        }
+
+        function message(m, person, id, c) {
+            output.innerHTML +=
+                '<div class="toggle ' +
+                c +
+                '" data-id="' +
+                id +
+                '" data-person="' +
+                person +
+                '" ><span>' +
+                m +
+                "</span> " +
+                person +
+                " </div>";
+        }
+
+        function loadJSON(callback, url) {
+            var xHR = new XMLHttpRequest;
+            xHR.onreadystatechange = function () {
+                if (this.readyState == 4 && this.status == 200) {
+                    callback(this.responseText);
+                } else {
+                    return false;
+                }
+            }
+            xHR.open('GET', url, true);
+            xHR.send();
+        }
+    </script>
+
+    <script src="https://code.jquery.com/jquery-3.5.0.js"
+        integrity="sha256-r/AaFHrszJtwpe+tHyNi/XCfMxYpbsRg2Uqn0x3s2zc=" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>
