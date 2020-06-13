@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>&#x1F3F4;&#x200D;&#x2620;&#xFE0F; Complete Javascripts Course</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous" />
+    <style>
+        .box {
+            font-size: 1.5em;
+            background-color: aliceblue;
+            border: 1px solid black;
+            padding: 10px;
+            margin: 10px;
+        }
+
+        #hint {
+            font-size: 1.5em;
+            background-color: rgb(255, 0, 255);
+            border: 1px solid black;
+            padding: 10px;
+            margin: 5px;
+        }
+    </style>
+</head>
+
+<body>
+    <br />
+    <br />
+    <center>
+        <!-- <input type="text" id="item"> -->
+
+        <br />
+        <div id="wrapper">&#x1F4C3; &#x1F3EA; 👾</div>
+        <div id="output">Complete JavaScript Course</div>
+        <br />
+        <input type="button" id="myButton" value="New Country" class="btn btn-outline-warning"><br><br>
+        <input type="text" id="guess">&nbsp;
+        <input type="button" id="myGuess" value="Guess" class="btn btn-outline-primary"><br><br>
+        <img src="" width="200px"><br><br>
+        <h3>Want Hint:</h3>
+        <div id="hint"></div>
+        <div id="output1" class="box"></div>
+        <div id="output2" class="box"></div>
+        <div id="output3" class="box"></div>
+    </center>
+    <script>
+        window.onload = init;
+        // https://restcountries.eu/rest/v2/all
+        var myButton = document.getElementById('myButton');
+        var guess = document.getElementById("myGuess");
+        var output1 = document.getElementById("output1");
+        var output2 = document.getElementById("output2");
+        var output3 = document.getElementById("output3");
+        var hint = document.getElementById("hint");
+        var pick = "";
+
+        function init() {
+            myButton.addEventListener('click', myLoader, false);
+            myGuess.addEventListener('click', guessWord, false);
+        }
+
+        function myLoader() {
+            var xHR = new XMLHttpRequest();
+            xHR.onload = rOutput;
+            xHR.open('get',
+                'https://restcountries.eu/rest/v2/all', true);
+            xHR.send();
+        }
+
+        function guessWord() {
+            var g = document.getElementById("guess").value;
+            var userGuess = '';
+            g.toLowerCase();
+            for (var x = 0; x < pick.name.length; x++) {
+                if (x >= g.length) {
+                    break;
+                }
+                if (g[x] == pick.name[x].toLowerCase()) {
+                    userGuess += g[x];
+                } else {
+                    userGuess += '-';
+                }
+            }
+            for (var x = 0; x < g.length; x++) {
+                if (g[x] == pick.name[x]) {
+                    output3.innerHTML = "Congratulation";
+                } else {
+                    output3.innerHTML = "Try Again!";
+                }
+            }
+            output2.innerHTML = userGuess;
+        }
+
+        function rOutput() {
+            var myObj = JSON.parse(this.responseText);
+            pick = myObj[Math.floor(Math.random() * myObj.length)];
+            var ww = "";
+            for (var x = 0; x < pick.name.length; x++) {
+                ww += '-';
+            }
+            hint.innerHTML = pick.capital;
+            document.querySelector('img').src = pick.flag;
+            output1.innerHTML = shuffleWord(pick.name);
+            output2.innerHTML = ww;
+        }
+
+        function shuffleWord(w) {
+            var response = "";
+            w = w.split('');
+            while (w.length > 0) {
+                response += w.splice(Math.floor(Math.random() * w.length), 1);
+            }
+            return response.toLowerCase();
+        }
+    </script>
+
+    <script src="https://code.jquery.com/jquery-3.5.0.js"
+        integrity="sha256-r/AaFHrszJtwpe+tHyNi/XCfMxYpbsRg2Uqn0x3s2zc=" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>
