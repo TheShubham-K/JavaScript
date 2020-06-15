@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>&#x1F3F4;&#x200D;&#x2620;&#xFE0F; Complete Javascripts Course</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous" />
+    <style></style>
+</head>
+
+<body>
+    <br />
+    <br />
+    <center>
+        <br />
+        <div id="wrapper">&#x1F4C3; &#x1F3EA; 👾</div>
+        <div id="output">Complete JavaScript Course</div>
+        <br />
+        <input type="text" id="searchYoutube" />&nbsp;
+        <input type="button" id="search" value="Search Youtube" />
+        <div id="output1"></div>
+    </center>
+    <script>
+        // <!-- AIzaSyAuJhDYt_9uPKVtgEkfREBpa7eEkwkTsAc -->
+        // https://www.googleapis.com/youtube/v3/search/?key=AIzaSyAuJhDYt_9uPKVtgEkfREBpa7eEkwkTsAc&q=test
+        window.onload = init;
+        var output = document.getElementById("output");
+
+        function init() {
+            document
+                .getElementById("search")
+                .addEventListener("click", ySearch, false);
+        }
+
+        function ySearch() {
+            var searchTerm = document.getElementById("searchYoutube").value;
+            var url =
+                "https://www.googleapis.com/youtube/v3/search/?part=snippet&key=AIzaSyAuJhDYt_9uPKVtgEkfREBpa7eEkwkTsAc&q=test&maxResults=20";
+            getJSON(url, function (data) {
+                console.log(data);
+            });
+        }
+
+        function getJSON(url, callback) {
+            var xhr = new XMLHttpRequest();
+            xhr.open("get", url, true);
+            xhr.responseType = "json";
+            xhr.onload = function () {
+                if (xhr.status == 200) {
+                    callback(xhr.response);
+                }
+            };
+            xhr.send();
+        }
+    </script>
+
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous">
+    </script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous">
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous">
+    </script>
+</body>
+
+</html>
