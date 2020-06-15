@@ -1,0 +1,28 @@
+<!-- Please note that myjson the website is no longer active
+
+This is the json that can be used or the endpoint of http://discoveryvip.com/shared/json.php?f=quiz -->
+
+<script>
+    function init() {
+        getJSON('test.json', function (response) {
+            myData = response;
+            buildPage();
+        })
+    }
+</script>
+<!-- [{
+    "question": "What color is an apple"
+    , "answers": ["Blue", "Red", "Purple"]
+    , "correct": 1
+}
+  , {
+    "question": "What color is Grass"
+    , "answers": ["Green", "Blue", "Red", "Purple"]
+    , "correct": 0
+}
+  , {
+    "question": "Is the Sky Blue"
+    , "answers": ["True", "False"]
+    , "correct": 0
+}
+] -->
