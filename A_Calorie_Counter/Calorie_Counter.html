@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>&#x1F3F4;&#x200D;&#x2620;&#xFE0F; Complete Javascripts Course</title>
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+        integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous" />
+    <style></style>
+</head>
+
+<body>
+    <br />
+    <br />
+    <center>
+        <br />
+        <div id="wrapper">&#x1F4C3; &#x1F3EA; 👾</div>
+        <div id="output">Complete JavaScript Course</div>
+        <br />
+        <form id="myForm">
+            <div>
+                Female <input id="f" type="radio" name="gender" />&nbsp; Male
+                <input id="m" type="radio" name="gender" />
+            </div>
+            <br />
+            <div>Weight <input id="weight" type="number" value="150" /> lbs</div>
+            <br />
+            <div>
+                Height <input id="heightFeet" type="number" value="5" /> Feet
+                &nbsp;&nbsp;<input id="heightInches" type="number" value="6" max="11" min="0" />
+                Inches
+            </div>
+            <br />
+            <div>Age <input id="age" type="number" value="30" /> years</div>
+            <br />
+            <div>
+                LifeStyle
+                <input id="lifeStyle" type="number" value="1" min="1" max="5" /> 1=low
+                activity 5 = High Activity
+            </div>
+        </form>
+    </center>
+    <script>
+        //BMR = 66 + ( 6.2 × weight in pounds ) + ( 12.7 × height in inches ) – ( 6.76 × age in years )
+        //BMR = 655.1 + ( 4.35 × weight in pounds ) + ( 4.7 × height in inches ) - ( 4.7 × age in years )
+        //document.forms.myForm.addEventListener('change',);
+        //document.forms.myForm.addEventListener('change',outputCal);
+        document.forms.myForm.onchange = outputCal;
+
+        function outputCal() {
+            //console.log(event.target);
+            function docId() {
+                let r = document.querySelector(arguments[0]);
+                r = r.value == "on" ? r.checked : Number(r.value);
+                return r;
+            }
+            let age = docId("#age");
+            let height = docId("#heightFeet") * 12 + docId("#heightInches");
+            let weight = docId("#weight");
+            let lifeStyle = docId("#lifeStyle") * 0.2 + 1;
+            let result = docId("#m") ?
+                lifeStyle * (66 + 6.2 * weight + 12.7 * height - 6.76 * age) :
+                lifeStyle * (655.1 + 4.35 * weight + 4.7 * height - 4.7 * age);
+            document.getElementById("output").innerHTML =
+                Math.round(result) + " calories needed per day.";
+        }
+    </script>
+
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous">
+    </script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous">
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous">
+    </script>
+</body>
+
+</html>
