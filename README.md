@@ -28,6 +28,10 @@
 - Word Scramble Game.
 - [HTML5_JavaScript.](HTML5_JavaScript)
 
+
+## And if y'all like this repository so please drop a star, i need your's support.
+
+
 # Contact.
 
 The best way to get touch with me is [on Instagram](https://www.instagram.com/subham.kumar032/).
